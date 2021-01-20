@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "ofbpnram",
+        "password": "Jl7ENPa2pkfmdO3fB81_uO93cNS1h_0P",
+        "database": "ofbpnram",
+        "host": "ruby.db.elephantsql.com",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "operatorsAliases": false
+    },
+    "production": {
+        "username": "ofbpnram",
+        "password": "Jl7ENPa2pkfmdO3fB81_uO93cNS1h_0P",
+        "database": "ofbpnram",
+        "host": "ruby.db.elephantsql.com",
+        "dialect": "postgres",
+        "operatorsAliases": false
+    },
+    "token_secret": "adfjkddkjf1*Adjhdjfhjdhf@ferY"
+}

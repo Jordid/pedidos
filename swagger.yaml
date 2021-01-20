@@ -1,0 +1,127 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
+  version: "1.0.0"
+  title: "Swagger Petstore"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "APP PEDIDOS"
+  description: "Aplicación de pedidos en linea "
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "store"
+  description: "Access to Petstore orders"
+- name: "user"
+  description: "Operations about user"
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /login:
+    post:
+      tags:
+      - "auth"
+      summary: "Autenticación de usuario"
+      description: ""
+      operationId: "auth"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "auth Object tool login"
+        required: true
+        schema:
+          $ref: "#/definitions/AuthObjectRequest"
+      responses:
+        "200":
+          description: "token"
+          schema: 
+            $ref: "#/definitions/AuthObjectResponse"
+        "401":
+          description: "No Autorizado"
+        "404":
+          description: "No encontrado"
+        "500":
+          description: "Error de Servidor"
+      
+  /search/{textSearch}:
+    get:
+      tags:
+      - "search"
+      summary: "Busqueda de platos con sus recursos adicionales (Restaurantes)"
+      description: ""
+      operationId: "search"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "textSearch"
+        in: "path"
+        description: "Search the dishes for restaurant"
+        type: "string"
+        required: false
+      responses:
+        "200":
+          description: "token"
+          schema: 
+            $ref: "#/definitions/SearchResponse"
+        "401":
+          description: "No Autorizado"
+        "404":
+          description: "No encontrado"
+        "500":
+          description: "Error de Servidor"
+        
+definitions:
+  AuthObjectRequest:
+    type: "object"
+    properties: 
+      user: 
+        type: "string"
+      pass: 
+        type: "string"
+      typeApp: 
+        type: "string"
+
+  AuthObjectResponse:
+    type: "object"
+    properties: 
+      token: 
+        type: "string"
+        
+        
+  SearchRequest:
+    type: "object"
+    properties: 
+      token: 
+        type: "string"
+        
+  SearchResponse:
+    type: "object"
+    properties: 
+      token: 
+        type: "string"
+        
+        
+        
+        
+        
+        
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
